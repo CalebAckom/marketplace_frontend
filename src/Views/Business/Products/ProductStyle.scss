@@ -1,0 +1,542 @@
+$PRIMARY-COLOR: #1b98e0;
+$PRIMARY-COLOR-ALT: #818aa9;
+$PRIMARY-COLOR-Hover: #006494;
+$BACKGROUND-COLOR: #e0e0e0;
+$NATIVE-WHITE: #fff;
+$NATIVE-TRANSPARENT: #0000001f;
+$NATIVE-BLACK: #1a1919;
+$NATIVE-WARNING: #ff0000;
+$NATIVE-GRAY: #353535;
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin center-content-flex-TD {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin center-content-flex-LR {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-wrapper {
+  width: 100%;
+  @include center-content-flex-TD();
+  background-color: $BACKGROUND-COLOR;
+  .product-content {
+    width: 70%;
+    height: 95vh;
+    @include center-content-flex-TD();
+    justify-content: flex-start;
+    box-shadow: 2px 4px 8px rgb(199, 199, 199);
+    margin-top:30px;
+    margin-bottom:20px;
+    padding-bottom:50px;
+    background-color: $NATIVE-WHITE;
+    > div.pro-top {
+      width: 100%;
+      height: max-content;
+      @include center-content-flex-TD();
+      > .upload-box {
+        transition: 1s;
+        width: 70%;
+        padding: 15px;
+        @include center-content-flex-TD();
+        border-radius: 7px;
+        position: relative;
+        >div.all-image-displayer{
+          @include center-content-flex-LR();
+          width: 90%;
+          justify-content: space-between;
+         >div.pre-existing{
+          width: 100%;
+          height: 13vh;
+          border: 2px solid rgb(194, 194, 194);
+          border-radius: 5px;
+          @include center-content-flex-TD();
+          >div.pre-existing-controls{
+            @include center-content-flex-LR();
+            justify-content: flex-start;
+            width: 100%;
+            border-bottom: 2px dashed rgb(172, 171, 171);
+            p{margin: 5px;font-size: 0.7em;color: rgb(48, 48, 48);font-weight: bold;}
+          }
+          >div.pre-existing-images{
+            @include center-content-flex-LR();
+            align-items: flex-start;
+            .preview-img-container{
+              height: 7vh;
+              width: 4vw;
+            }
+            @media screen and (min-width:280px) and (max-width: 780px){
+              .preview-img-container{
+                width: 10vw;
+              }
+            }
+          }          
+         }
+        >div.all-image-divider{
+            width: 3px;
+            height: 13vh;
+            background-color: #c4bfbf;
+            margin: 20px;
+        }
+         >div.img-list-container{
+          width: 50%;
+          height: 13vh;
+          border-radius: 5px;
+          border: 2px solid rgb(194, 194, 194);
+          div.img-list {
+            @include center-content-flex-LR();
+            border-radius: 5px;            
+            .preview-img-container {
+              width: 5.5vw;
+              height: 10vh;
+              .preview-img-content {
+                width: 100%;
+                height: 100%;
+              }              
+            }
+          }
+            @media screen and (min-width:280px) and (max-width: 780px) {
+              width: 90vw;
+              >.img-list{
+                >div.preview-img-container {
+                  width:20vw;             
+                }
+              }
+            }
+         }
+         @media screen and (min-width:280px) and (max-width: 780px) {
+          @include center-content-flex-TD();
+          .pre-existing-images{
+            width: 85vw;
+          }
+          .all-image-divider{
+            display: none;
+          }
+          .img-list-container{
+            width: 85vw;
+            .img-list{
+              width: 100%;
+              @include center-content-flex-LR();
+              justify-content: center;
+            }
+          }
+         }
+        }
+         > p {
+          color: $NATIVE-GRAY;
+          font-size: 1em;
+          margin: 10px;
+          font-weight: bolder;
+          width: 90%;
+         }
+         > section.upload-preview-box {
+          min-height: 10vh;
+          width: 90%;
+          border: 2px dashed $BACKGROUND-COLOR;
+          padding: 5px;
+          position: relative;
+          @include center-content-flex-TD();
+          > img {
+            width: 40%;
+            height: 21vh;
+            border-radius: 10px;
+          }
+          > input {
+            visibility: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+          }
+          > span {
+            font-size: 0.7em;
+            color: #969494;
+            pointer-events: painted;
+            > label {
+              color: $PRIMARY-COLOR;
+              transition: 0.3s ease-in-out;
+              cursor: pointer;
+              &:hover {
+                font-size: 1.2em;
+                font-weight: bold;
+              }
+              &:active {
+                font-size: 1.2em;
+                font-weight: bold;
+                color: $PRIMARY-COLOR-ALT;
+              }
+            }
+          }
+        }
+
+        > div.upload-control-box {
+          width: 98%;
+          margin: 5px;
+          @include center-content-flex-LR();
+          > .upload-cancel {
+            border: none;
+            background-color: $PRIMARY-COLOR;
+            color: $NATIVE-WHITE;
+            margin: 5px;
+            padding: 5px;
+            font-size: 0.8em;
+            width: 25%;
+            border-radius: 5px;
+            &:hover {
+              background-color: $PRIMARY-COLOR-Hover;
+            }
+            &:active {
+              background-color: $PRIMARY-COLOR;
+            }
+            &:disabled {
+              background-color: $PRIMARY-COLOR-ALT;
+            }
+          }
+          > .upload-go {
+            border: none;
+            background-color: $PRIMARY-COLOR;
+            color: $NATIVE-WHITE;
+            margin: 5px;
+            padding: 8px;
+            padding-left: 30px;
+            padding-right: 30px;
+            font-size: 0.8em;
+            width: auto;
+            border-radius: 5px;
+            &:hover {
+              background-color: $PRIMARY-COLOR-Hover;
+            }
+            &:active {
+              background-color: $PRIMARY-COLOR;
+            }
+            &:disabled {
+              background-color: $PRIMARY-COLOR-ALT;
+            }
+          }
+        }
+        div.progress-wrapper {
+          width: 90%;
+          height: 0.5vh;
+          border-radius: 5px;
+          > div.progress-bar {
+            transition: 0.8s;
+            height: 100%;
+            background: linear-gradient(to left, $PRIMARY-COLOR, crimson);
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+    > div.pro-down {
+      width: 68%;
+      height: 50%;
+      margin-top: 20px;
+      @include center-content-flex-LR();
+      .pro-down-left {
+        width: 70%;
+        height: 50vh;
+        @include center-content-flex-TD();
+        justify-content: flex-start;
+        > div.EditSnipet {
+          width: 80%;
+          height:10vh;
+        }
+      }
+      .pro-down-right {
+        width: 70%;
+        height:50vh;
+        @include center-content-flex-TD();
+        justify-content: flex-start;
+        > div.EditSnipet {
+          width: 80%;
+          height:10vh;
+        }
+        > div.ctrl-box {
+          width: 80%;
+          height: 11vh;
+          margin-top: 18px;
+          margin-bottom: 5px;
+          @include center-content-flex-LR();
+          align-items: flex-end;
+          justify-content: space-between;
+          > button {
+            width: 45%;
+            border: none;
+            height: 6vh;
+            border-radius: 5px;
+            color: $NATIVE-WHITE;
+            &:nth-child(1) {
+              background-color: $PRIMARY-COLOR;
+            }
+            &:nth-child(2) {
+              background-color: $PRIMARY-COLOR-ALT;
+            }
+            &:hover {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+@media (max-width: 576px) {
+  .viewprofilebtn{
+    width:40%;
+    font-size:12px;
+    background-color: $PRIMARY-COLOR;
+    color:$NATIVE-WHITE;
+  }
+  .savebtn{
+    width: 90%;
+    border: none;
+    height: 5vh;
+    border-radius: 5px;
+    color: $NATIVE-WHITE;
+    background-color: $PRIMARY-COLOR;
+  }
+ 
+
+
+.product-wrapper {
+  width: 100%;
+  @include center-content-flex-TD();
+  background-color: $NATIVE-WHITE;
+  .product-content {
+    width: 100%;
+    height: auto;
+    @include center-content-flex-TD();
+    justify-content: center;
+    box-shadow: 1px 3px 6px rgb(199, 199, 199);
+    margin-top:30px;
+    margin-bottom:20px;
+    padding-bottom:50px;
+    background-color: $NATIVE-WHITE;
+    > div.pro-top {
+      width: 100%;
+      height: auto;
+      @include center-content-flex-TD();
+      > .upload-box {
+        transition: 1s;
+        width: 100%;
+        padding: 0;
+        margin-top:0;
+        @include center-content-flex-TD();
+        border-radius: 7px;
+        position: relative;
+        div.img-list {
+          // position: absolute;
+          // height:15vh;
+          margin: 5px;
+          // right: -100px;
+          // top: 50px;
+          @include center-content-flex-LR();
+          background-color: $BACKGROUND-COLOR;
+          border-radius: 5px;
+          .preview-img-container {
+            width: 100%;
+            height: 7.5vh;
+            .preview-img-content {
+              width: 100%;
+              height: 10vh;
+            }
+          }
+          @media screen and (min-width: 280px) and (max-width:780px) {
+            width: 90%;
+          }
+        }
+        > p {
+          color: $NATIVE-GRAY;
+          font-size: 1em;
+          margin: 10px;
+          font-weight: bolder;
+          width: 90%;
+        }
+        > section.upload-preview-box {
+          min-height: 100%;
+          width: 100%;
+          border: 2px dashed $BACKGROUND-COLOR;
+          padding: 5px;
+          position: relative;
+          @include center-content-flex-TD();
+          > img {
+            width: 100%;
+            height: 21vh;
+            border-radius: 10px;
+          }
+          > input {
+            // visibility: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+          }
+          > span {
+            font-size: 0.7em;
+            color: #969494;
+            pointer-events: painted;
+            > label {
+              color: $PRIMARY-COLOR;
+              transition: 0.3s ease-in-out;
+              cursor: pointer;
+              &:hover {
+                font-size: 1.2em;
+                font-weight: bold;
+              }
+              &:active {
+                font-size: 1.2em;
+                font-weight: bold;
+                color: $PRIMARY-COLOR-ALT;
+              }
+            }
+          }
+        }
+        > div.upload-control-box {
+          width: 98%;
+          margin: 5px;
+          @include center-content-flex-LR();
+          > .upload-cancel {
+            border: none;
+            background-color: $PRIMARY-COLOR;
+            color: $NATIVE-WHITE;
+            margin: 5px;
+            padding: 5px;
+            font-size: 0.8em;
+            width: 25%;
+            border-radius: 5px;
+            &:hover {
+              background-color: $PRIMARY-COLOR-Hover;
+            }
+            &:active {
+              background-color: $PRIMARY-COLOR;
+            }
+            &:disabled {
+              background-color: $PRIMARY-COLOR-ALT;
+            }
+          }
+          > .upload-go {
+            border: none;
+            background-color: $PRIMARY-COLOR;
+            color: $NATIVE-WHITE;
+            margin: 5px;
+            padding: 8px;
+            padding-left: 30px;
+            padding-right: 30px;
+            font-size: 0.8em;
+            width: auto;
+            border-radius: 5px;
+            &:hover {
+              background-color: $PRIMARY-COLOR-Hover;
+            }
+            &:active {
+              background-color: $PRIMARY-COLOR;
+            }
+            &:disabled {
+              background-color: $PRIMARY-COLOR-ALT;
+            }
+          }
+        }
+        div.progress-wrapper {
+          width: 90%;
+          height: 0.5vh;
+          border-radius: 5px;
+          > div.progress-bar {
+            transition: 0.8s;
+            height: 100%;
+            background: linear-gradient(to left, $PRIMARY-COLOR, crimson);
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+    > div.pro-down {
+      width: 100%;
+      height: 50%;
+      margin-top:0;
+      @include center-content-flex-LR();
+      .pro-down-left {
+        width: 70%;
+        height: 50vh;
+        @include center-content-flex-TD();
+        justify-content: flex-start;
+        > div.EditSnipet {
+          width: 80%;
+          height:10vh;
+        }
+      }
+      .pro-down-right {
+        width: 70%;
+        height: 50vh;
+        @include center-content-flex-TD();
+        justify-content: flex-start;
+        > div.EditSnipet {
+          width: 80%;
+          height:10vh;
+        }
+        > div.ctrl-box {
+          width: 80%;
+          height: 11vh;
+          margin: 18px;
+          @include center-content-flex-LR();
+          align-items: flex-end;
+          justify-content: space-between;
+          > button {
+            width: 45%;
+            border: none;
+            height: 5vh;
+            border-radius: 5px;
+            color: $NATIVE-WHITE;
+            &:nth-child(1) {
+              background-color: $PRIMARY-COLOR;
+            }
+            &:nth-child(2) {
+              background-color: $PRIMARY-COLOR-ALT;
+            }
+            &:hover {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+}
+
+
+@media (min-width: 992px){
+  .viewprofilebtn{
+    width:15%;
+    background-color: $PRIMARY-COLOR-ALT;
+    color:$NATIVE-WHITE;
+  }
+  .viewprofilebtn:hover {
+    background-color: $PRIMARY-COLOR;
+    color:$NATIVE-WHITE;
+  }
+  .edit-info-text{
+    font-size:25px;
+  }
+  .savebtn{
+    width: 20%;
+    border: none;
+    height: 5vh;
+    border-radius: 5px;
+    color: $NATIVE-WHITE;
+    background-color: $PRIMARY-COLOR;
+  }
+}

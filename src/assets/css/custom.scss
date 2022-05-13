@@ -1,0 +1,457 @@
+//Business Page Styles
+@use "../../Views/Business/BusinessStyle";
+@use "../../Views/Business/NBusiStyle.scss";
+@use "../../Views/Business/UploadBox_Style.scss";
+@use "xNavStyle.scss";
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata&family=Roboto&display=swap");
+
+@mixin center-content-TD {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.signup-wrapper {
+  background-color: rgb(224, 224, 224);
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .signup-container {
+    width: 100%;
+    height: 100%;
+    @include center-content-TD();
+    justify-content: flex-start;
+    padding-top: 50px;
+    > form {
+      box-shadow: 0px 5px 20px rgb(173, 172, 172);
+      @include center-content-TD();
+      background-color: rgb(255, 255, 255);
+      width: 50%;
+      height: 85%;
+      .signup-header {
+        font-size: 2em;
+        text-align: center;
+        width: 80%;
+        margin: 20px 0px;
+        font-weight: bolder;
+        font-family: "Roboto", sans-serif;
+      }
+      .form-group {
+        width: 70%;
+        height: 13vh;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        > label {
+          font-size: 0.8em;
+          text-align: left;
+          height: 20%;
+          color: BusinessStyle.$NATIVE-BLACK;
+          margin: 5px 0px;
+          font-weight: bolder;
+        }
+        .password-input-wrapper {
+          width: 100%;
+          height: 5.5vh;
+          display: flex;
+          align-items: center;
+          border: 2px solid BusinessStyle.$NATIVE-BLACK;
+          border-radius: 5px;
+          > input {
+            outline: none;
+            border: none;
+            // height: 5vh;
+            width: 93%;
+            padding-left: 5px;
+          }
+          > input::-ms-reveal,
+          > input::-ms-clear {
+            display: none;
+          }
+          .show-password {
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 25px;
+            height: 4vh;
+            background-color: transparent !important;
+            outline: none;
+            border: none;
+            > .icon {
+              display: grid;
+              place-items: center;
+            }
+          }
+        }
+        > input {
+          outline: none;
+          border: none;
+          border-radius: 5px;
+          border: 2px solid BusinessStyle.$NATIVE-BLACK;
+          height: 2vh;
+          padding-left: 5px;
+        }
+        > input::-ms-reveal,
+        > input::-ms-clear,
+        > input::-ms-fill {
+          display: none;
+        }
+        input::placeholder {
+          font-size: 12px;
+        }
+        > input:-internal-autofill-selected {
+          background-color: transparent !important;
+        }
+
+        > .info {
+          color: #ff3a3a;
+          font-size: 12px;
+          font-weight: 400;
+          text-align: right;
+        }
+
+        .option-group {
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+        }
+      }
+      .signup-footer {
+        font-size: 12px;
+        text-align: center;
+        width: 90%;
+        padding: 30px;
+        > p {
+          margin: 5px;
+          width: 100%;
+          display: inline;
+        }
+      }
+      .form-pre-registered {
+        font-size: 0.8em;
+        // visibility: hidden;
+        display: none;
+      }
+      .go-button {
+        margin: 20px 0px;
+        background: BusinessStyle.$PRIMARY-COLOR;
+        border-radius: 5px;
+        font-size: 18px;
+        width: 70%;
+        height: 5.5vh;
+        color: white;
+        outline: none;
+        border: none;
+      }
+      > .go-button:hover {
+        background: #006494;
+      }
+      > .go-button:active {
+        background: BusinessStyle.$PRIMARY-COLOR;
+      }
+
+      > .go-button:disabled {
+        background-color: darkgray;
+        color: rgb(207, 204, 204);
+      }
+    }
+  }
+  .signup-container-side {
+    padding: 0%;
+    height: wrap-content;
+    .top {
+      width: 100%;
+      height: 25vh;
+      background-color: rgb(255, 255, 255);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 10px 10px #00000029;
+      > p:nth-child(1) {
+        font-weight: 400;
+      }
+      > p:nth-child(2) {
+        font-size: 14px;
+        font-weight: 300;
+      }
+      > button {
+        background: BusinessStyle.$PRIMARY-COLOR;
+        border-radius: 10px;
+        font-size: 14px;
+        width: 60%;
+        height: 5vh;
+        color: white;
+        outline: none;
+        border: none;
+      }
+      > button:hover {
+        background: #006494;
+      }
+      > button:active {
+        background: BusinessStyle.$PRIMARY-COLOR;
+      }
+    }
+  }
+}
+
+.ps-wrapper {
+  width: 98%;
+  height: 0.5vh;
+  background-color: rgb(255, 255, 255);
+  margin: 2px 0px;
+  border-radius: 20px;
+  transition: 1s;
+  margin-left: 5px;
+  .ps-indicator-wrapper {
+    display: inline;
+    width: 100%;
+    height: 100%;
+    transition: 1s;
+    .ps-indicator {
+      width: 20%;
+      height: 100%;
+      border-radius: 20px;
+      transition: 1s;
+    }
+    .info {
+      color: #ff3a3a;
+      font-size: 12px;
+      font-weight: 400;
+      text-align: right;
+    }
+  }
+}
+
+.signup-go-confirm {
+  pointer-events: visible;
+  z-index: 100;
+  background-color: #000000b3;
+  width: 100%;
+  height: 90%;
+  position: absolute;
+  display: grid;
+  place-items: center;
+  transition: 1s;
+  > .click-box {
+    width: 350px;
+    height: 200px;
+    background: #ffffff;
+    box-shadow: 0px 10px 10px #4e4e4e29;
+    border: 1px solid #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    > .icon {
+      cursor: pointer;
+      font-size: 1em;
+      transition: 0.5s;
+    }
+    > .icon:hover {
+      font-size: 1.5em;
+      color: #ff3a3a;
+      transform: rotateZ(90deg);
+    }
+    > .icon:active {
+      border: 3px solid #ff3a3a;
+    }
+    > p {
+      font-size: 1em;
+      margin-top: 10px;
+    }
+    div.isDialog{
+      width: 100%;
+      height: 8vh;
+      >button:nth-child(1){
+        background-color: #ff3a3a;
+      }
+      >button:nth-child(2){
+        background-color: #3aff44;
+      }
+    }
+    > button {
+      width: 80%;
+      height: 48px;
+      background: BusinessStyle.$PRIMARY-COLOR;
+      border-radius: 10px;
+      color: #ffffff;
+      border: none;
+      outline: none;
+      margin: auto;
+    }
+    > button:hover {
+      background-color: #006494;
+    }
+    > button:active {
+      background: BusinessStyle.$PRIMARY-COLOR;
+    }
+  }
+}
+
+.confirm-account {
+  width: 99vw;
+  height: 80vh;
+  background-color: rgb(224, 224, 224);
+  display: grid;
+  place-items: center;
+  > .confirm-main {
+    width: 20vw;
+    height: 70%;
+    box-shadow: 0px 10px 10px #00000029;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    .confirm-title {
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: 500;
+      width: 70%;
+    }
+    .confirm-input-wrapper {
+      height: 20%;
+      width: 85%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      > input {
+        width: 20%;
+        height: 60%;
+        border-radius: 10px;
+        outline: none;
+        border: 2px solid #707070;
+        text-align: center;
+        font-size: 1.8em;
+        // font-weight: bold;
+      }
+      > input:focus {
+        border: 2px solid BusinessStyle.$PRIMARY-COLOR;
+      }
+    }
+    .confirm-button {
+      width: 65%;
+      height: 4vh;
+      background: BusinessStyle.$PRIMARY-COLOR;
+      border-radius: 10px;
+      color: #ffffff;
+      border: none;
+      outline: none;
+      margin: 20px 0px;
+    }
+    .confirm-button:hover {
+      background-color: #006494;
+    }
+    .confirm-button:active {
+      background: BusinessStyle.$PRIMARY-COLOR;
+    }
+    .confirm-button:disabled {
+      background: #7e7e80;
+    }
+    .confirm-prompt {
+      padding: 12px;
+      font-size: 0.8em;
+      width: 70%;
+    }
+    .confirm-button-wrapper {
+      height: auto;
+      display: grid;
+      place-items: center;
+      width: 80%;
+    }
+    .confirm-processing-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 8%;
+      width: 70%;
+      > .resend-button {
+        font-size: 12px;
+        width: 60%;
+        background: #fff;
+        border: 2px solid #707070;
+        border-radius: 20px;
+        transition: 0.5s;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      > .resend-button:hover {
+        background: #006494;
+        color: white;
+        font-weight: bold;
+      }
+      > .resend-button:active {
+        background: BusinessStyle.$PRIMARY-COLOR;
+      }
+      > .resend-button:disabled {
+        background: #7e7e80;
+        transition: 0s;
+        color: rgb(182, 178, 178);
+        font-weight: bold;
+      }
+      > .timer {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        > p {
+          color: BusinessStyle.$PRIMARY-COLOR;
+          font-size: 12px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 240px) and (max-width: 768px) {
+  .signup-wrapper {
+    background-color:#fff;
+    .signup-container {
+      padding-top: 20px;
+      > form {
+        width: 90%;
+        height: 95%;
+        padding: 20px 0px;
+        .signup-header {
+          font-size: 1.5em;
+        }
+        .form-group {
+          width: 90%;
+          > label {
+          }
+        }
+      }
+    }
+  }
+
+  .confirm-account {
+    .confirm-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 70%;
+      width: 80vw;
+      .confirm-processing-wrapper {
+        > .restart-button {
+          font-size: 12px;
+          width: 65%;
+        }
+        > .timer {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          > p {
+            color: BusinessStyle.$PRIMARY-COLOR;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+

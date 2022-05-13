@@ -1,0 +1,267 @@
+@use "../../Views/Business/BusinessStyle";
+
+@mixin grid-temp {
+  display: grid;
+  grid-template: repeat(20, 2fr) / repeat(20, 2fr);
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%common-content-alignment {
+  > div.content-1-left {
+    height: 90%;
+    width: 45%;
+    // background-color: greenyellow;
+    > div.EditSnipet {
+      width: 90%;
+    }
+  }
+  > div.content-1-center {
+    height: 100%;
+    width: 10%;
+  }
+  > div.content-1-right {
+    height: 90%;
+    width: 45%;
+    // background-color: hotpink;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    > div.EditSnipet {
+      width: 90%;
+    }
+  }
+  @media only screen and (min-width: 240px) and (max-width: 780px) {
+    > div.content-1-left {
+      height: 90%;
+      width: 45%;
+      > .EditSnipet {
+        width: 100%;
+        > .input-box {
+          width: 100%;
+        }
+      }
+    }
+
+    > div.content-1-center {
+      height: 100%;
+      width: 5%;
+    }
+  }
+}
+
+@mixin common-button-behaviour($prim-color: BusinessStyle.$PRIMARY-COLOR) {
+  background-color: $prim-color;
+  color: BusinessStyle.$NATIVE-WHITE;
+  border: none;
+  border-radius: 5px;
+}
+
+.busi-wrapper {
+  width: 100vw;
+  height: 130vh;
+  background-color: BusinessStyle.$BACKGROUND-COLOR;
+  @include flex-center();
+  flex-direction: column;
+  justify-content: flex-start;
+  > div.busi-header {
+    width: 70vw;
+    height: 10%;
+
+    @include flex-center();
+    justify-content: space-between;
+    > button {
+      width: 15%;
+      height: 40%;
+      border: none;
+      @include common-button-behaviour(
+        $prim-color: BusinessStyle.$PRIMARY-COLOR-ALT
+      );
+      border-radius: 5px;
+      &:hover {
+        background: BusinessStyle.$PRIMARY-COLOR;
+      }
+      &:active {
+        background: BusinessStyle.$PRIMARY-COLOR-ALT;
+      }
+    }
+  }
+  > div.busi-content {
+    @include flex-center();
+    flex-direction: column;
+    width: 70vw;
+    height: 85%;
+    box-shadow: 1px 1px 7px 1px rgb(170, 168, 168);
+    background-color: BusinessStyle.$NATIVE-WHITE;
+    > .header {
+      width: 100%;
+      height: 25%;
+      margin: 23px;
+      @include flex-center();
+      > section {
+        position: relative;
+
+        @include flex-center();
+        > img {
+          border-radius: 50%;
+          width: 9vw;
+          height: 17.5vh;
+        }
+        > label {
+          position: absolute;
+          border-radius: 50%;
+          right: -2%;
+          top: 17%;
+          background-color: BusinessStyle.$PRIMARY-COLOR;
+          box-shadow: 2px 2px 4px gray;
+
+          cursor: pointer;
+          @include flex-center();
+          > input {
+            display: none;
+          }
+          > svg {
+            fill: white;
+          }
+        }
+        > label:hover {
+          background-color: BusinessStyle.$PRIMARY-COLOR-Hover;
+          border: 2px solid transparent;
+        }
+        > label:active {
+          background-color: BusinessStyle.$PRIMARY-COLOR;
+        }
+      }
+    }
+    > .body {
+      @include flex-center();
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 100%;
+      height: 90%;
+
+      > div.content-1 {
+        height: 35%;
+        width: 80%;
+        display: flex;
+        @include flex-center();
+        justify-content: flex-start;
+        @extend %common-content-alignment;
+        // background-color: aqua;
+      }
+      > div.content-2 {
+        height: 23%;
+        width: 80%;
+        // margin-top: 40px;
+        margin-bottom: 20px;
+        > div {
+          height: 85%;
+          width: 98%;
+          margin: 5px;
+        }
+      }
+      > div.content-3 {
+        height: 15%;
+        width: 80%;
+        display: flex;
+        @include flex-center();
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        @extend %common-content-alignment;
+      }
+      > div.content-4-footer {
+        height: 10%;
+        width: 90%;
+        margin-top: 20px;
+        background-color: transparent;
+        @include flex-center();
+        > button {
+          height: 75%;
+          @include common-button-behaviour();
+          width: 20%;
+          padding: 5px;
+          font-size: 0.9em;
+          &:hover {
+            background: BusinessStyle.$PRIMARY-COLOR-ALT;
+          }
+          &:active {
+            background: BusinessStyle.$PRIMARY-COLOR-Hover;
+          }
+        }
+      }
+    }
+  }
+}
+
+//
+
+.loader-wrapper {
+  width: 5vw;
+  height: 9vh;
+  > .loader {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    animation: loader_animate 5s ease-in-out infinite;
+    background: rgb(255, 255, 255);
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgb(14, 186, 243), 0px 0px 20px rgb(14, 186, 243),
+      0px 0px 30px rgb(14, 186, 243), 0px 0px 40px rgb(14, 186, 243),
+      0px 0px 10px rgb(14, 243, 205), 0px 0px 10px rgb(14, 243, 205),
+      0px 0px 10px rgb(14, 186, 243), 0px 0px 10px rgb(14, 186, 243),
+      0px 0px 10px rgb(14, 186, 243);
+  }
+  @keyframes loader_animate {
+    0% {
+      filter: hue-rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@media only screen and (min-width: 240px) and (max-width: 780px) {
+  .busi-wrapper {
+    > div.busi-header {
+      width: 90%;
+      height: 8%;
+      > h3 {
+        font-size: 1.2em;
+      }
+      > button {
+        width: 30%;
+        font-size: 0.8em;
+      }
+    }
+    > div.busi-content {
+      width: 100%;
+      justify-content: flex-start;
+      > .header {
+        > section {
+          background-color: white;
+          > img {
+            width: 32vw;
+          }
+        }
+      }
+      > .body {
+        border-color: coral;
+        > div.content-1 {
+          margin: 0px;
+        }
+        > div.content-4-footer {
+          > button {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

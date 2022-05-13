@@ -1,0 +1,215 @@
+@media (max-width: 576px) {
+  .vieWrapper {
+    height: auto;
+  }
+  .single-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 9px;
+  }
+  .mob-display {
+    display: block;
+  }
+  .imguser {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .img-detail-list {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    margin: 5px;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 768px) {
+  .vieWrapper {
+    /* height:100vh; */
+    width: 70%;
+  }
+  .single-img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+  }
+  .imguser {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .img-detail-list {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin: 5px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) and (max-width: 992px) {
+  .vieWrapper {
+    /* height:100vh; */
+    width: 70%;
+  }
+  .single-img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+  }
+  .imguser {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .img-detail-list {
+    width: 73px;
+    height: 73px;
+    object-fit: cover;
+    margin: 5px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1999px) {
+  .vieWrapper {
+    width: 70%;
+  }
+  .single-img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+  }
+  .imguser {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .img-detail-list {
+    width: 73px;
+    height: 73px;
+    object-fit: cover;
+    margin: 5px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .vieWrapper {
+    width: 70%;
+  }
+  .single-img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+  }
+  .imguser {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .img-detail-list {
+    width: 57px;
+    height: 57px;
+    object-fit: cover;
+    margin: 5px;
+  }
+  .disptabPC{
+    display: block;
+  }
+  .onPCView{
+    display: block;
+  }
+}
+
+@media (min-width: 1540px) {
+  .vieWrapper {
+    /* height:100vh; */
+    width: 70%;
+  }
+  .single-img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+  }
+  .imguser {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .img-detail-list {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 5px;
+  }
+  .disptabPC{
+    display: flex;
+    flex-direction: row;
+  }
+  .onPCView{
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+/* remove default border color of material ui select */
+fieldset {
+  border: none !important;
+  outline: none !important;
+}
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active {
+  outline: 0px !important;
+  -webkit-appearance: none;
+  box-shadow: none !important;
+}
+
+.addtocartBtn {
+  display: inline-block;
+  width: 100%;
+  padding: 0.5em 3em;
+  border: 0.16em solid #ffffff;
+  margin: 0 0.3em 0.3em 0;
+  box-sizing: border-box;
+  border-radius: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  transition: all 0.15s;
+  background-color: #1b98e0;
+}
+.addtocartBtn:hover {
+  color: #dddddd;
+}
+.addtocartBtn:active {
+  color: #bbbbbb;
+  border-color: #bbbbbb;
+}
+
+.read-more-less--more,
+.read-more-less--less {
+  color: #1b98e0;
+}

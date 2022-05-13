@@ -1,0 +1,400 @@
+@use  './Prompter.scss';
+
+$PRIMARY-COLOR: #1b98e0;
+$PRIMARY-COLOR-ALT: #818aa9;
+$PRIMARY-COLOR-Hover: #006494;
+$BACKGROUND-COLOR: #e0e0e0;
+$NATIVE-WHITE: #fff;
+$NATIVE-TRANSPARENT: #0000001f;
+$NATIVE-BLACK: #1a1919;
+$NATIVE-WARNING: #ff0000;
+$NATIVE-GRAY: #353535;
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin center-content-flex-TD {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin center-content-flex-LR {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.my-products-wrapper{
+    min-height: 70vh;
+    // margin-top: 14vh;
+    @include center-content-flex-TD();
+    justify-content: flex-start;
+    >div.my-product-header-cover{        
+        position: fixed;
+        z-index: 50;  
+        background-color: $NATIVE-WHITE;
+        width: 100vw;
+        height: 10vh;
+        @include center-content-flex-TD();
+        justify-content: flex-end;
+
+        >div.my-product-header{
+            width: 67%;          
+            @include center-content-flex-LR();
+            align-items: flex-end;
+            justify-content: space-between;
+            background-color: rgb(243, 243, 243);
+            padding: 10px;            
+            >div.search-bar{
+                width: 50%;
+                height: 4vh;                 
+                div.srch-a{
+                    @include center-content-flex-LR();
+                    align-items: center;
+                    justify-content: flex-start;
+                    height: 100%;
+                    border-radius: 10px;
+                    padding-left: 5px;
+                    >.MuiSvgIcon-root{
+                        color: rgb(99, 99, 99);
+                        margin-right: 1px;
+                    }
+                    >input[type="text"]{
+                        border: none;
+                        width: 70%;
+                        height: 100%;
+                        outline: none;
+                        transition: 1;
+                        background-color: transparent;
+                    }
+                    button{
+                        border: none;
+                        background-color: $PRIMARY-COLOR;
+                        transition: 0.5s;
+                        color: $NATIVE-WHITE;
+                        width: 5vw;
+                        font-size: 0.9em;
+                        padding: 5px;
+                        border-radius: 5px;
+                        margin-left: 10px;
+                        &:hover{
+                            background-color: $PRIMARY-COLOR-ALT;
+                        }
+                        @media screen and (min-width: 280px) and (max-width: 780px) {
+                            width: 20vw;
+                        }
+                    }
+                }
+                
+            }
+            >div.change-view{
+                color: $NATIVE-GRAY;
+                width: 9vw;
+                height: 5vh;
+                font-weight: bold;
+                cursor: pointer;
+                @include center-content-flex-LR();   
+                justify-content: flex-end;
+                align-items: center;
+                p{margin: 0px;font-size: 0.9em; margin-right: 10px;}
+            }
+            @media screen and (min-width: 280px) and (max-width:780px){
+                width: 90%;
+                div.srch-a{
+                   height: 7vh;
+                   width: 55vw;
+                   font-size: 0.7em;
+                    input[type="text"]{
+                       
+                       background-color: coral;
+                       outline: 1px;
+                    }
+                   >button{
+                        height: 3.5vh;
+                        width: 10vh;
+                        font-size: 0.8em;
+                        
+                    }
+
+                }
+                >div.change-view{  
+                    width: 25vw;
+                    p{
+                        font-size: 0.7em;
+                        display: none;
+                    }
+                    svg{
+                        font-size: 0.9em;
+                    }
+                }
+            }
+        }
+    }
+    
+    >div.my-product-content{
+        width: 68vw;
+        min-height: 50vh;
+        margin: 30px 0px;
+        margin-top: 12vh;   
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: flex-start;     
+        @media screen and (min-width: 280px) and (max-width: 780px) {
+            width: 92vw;
+        }   
+        >div.pitem-wrapper-grid{
+            margin: 1.3%;   
+            width: 15vw;
+            min-height: 40vh;
+            padding:10px;
+            position: relative;   
+            @include center-content-flex-TD();  
+            justify-content: flex-start;
+            padding-top: 5px; 
+            border-radius: 5px;
+            cursor: pointer;            
+            &:hover{
+                transition: 0.4s;
+                box-shadow: 0px 2px 1px 2px #cccccc;
+                img{
+                    transform: scale(1.05); 
+                }
+                >div.actions{
+                    visibility: visible;  
+                    width: 90%;                    
+                }
+            }
+            img{
+                width: 14vw;
+                height: 28vh;
+                margin-top: 5px;
+                transition: 0.7s;
+            }
+            div.detail{
+                margin-top: 5px;
+                width: 14vw;
+                position: relative;
+                >p.name{
+                    font-size: 1.2em;
+                    font-weight: bold;
+                    margin: 0px;
+                    width: 14vw;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                >div.price{
+                    @include center-content-flex-LR();
+                    justify-content: flex-start;
+                    font-size: 0.9em; 
+                    p:nth-child(1){                        
+                        margin: 0px;
+                        margin-right: 7px;
+                        font-weight: bold;
+                    }
+                    p:nth-child(2){
+                        font-weight: bold;
+                        margin: 0px;
+                    }
+                    >p.dprice{
+                        text-decoration: line-through;
+                        color: rgb(148, 146, 146);
+                        font-weight: normal;
+                    }
+                    
+                }
+                >p.discount{
+                    font-size: 0.7em;
+                    font-weight: bold;
+                }
+                
+            }
+            >div.actions{                
+                height: 5vh;
+                // background-color: #e2e2e2;
+                visibility: hidden;
+                transition: 0.1s;
+                width: 0%;
+                margin-top: 10px;
+                @include center-content-flex-LR();
+                justify-content: flex-end;
+                >button{
+                    font-size: 0.8em;
+                    border: none;
+                    margin: 5px;
+                    padding: 5px;
+                    width: 4vw;
+                    border-radius: 5px;
+                    @include center-content-flex-LR();
+                    >.MuiSvgIcon-root{
+                        color: rgb(99, 99, 99);
+                        font-size: 1em
+                    }
+                    &:nth-child(1){
+                        background-color: rgb(227, 230, 227);
+                    }
+                    &:nth-child(2){
+                        background-color: rgb(158, 158, 158);
+                    }
+                    &:hover{
+                        box-shadow: 0px 2px 3px gray;
+                        text-shadow: 0px 2px 3px gray;
+                    }
+                    &:active{
+                        opacity: 0.8;
+                    }
+                }
+            }
+            @media screen and (min-width: 280px) and (max-width: 780px) {
+                width: 39vw;
+                height: 18vh;
+                padding: 0px;
+                img{
+                    width: 98%;
+                    height: 20vh;
+                }
+                >div.detail{
+                    width: 98%;
+                    p{
+                        &:nth-child(1){
+                            font-size: 1em;
+                        }
+                        &:nth-child(3){
+                            font-size: 0.7em;
+                        }
+                    }
+                }
+                >div.actions{
+                    button:nth-child(1){
+                        width: 40%;
+                    }
+                    button:nth-child(2){
+                        width: 40%;
+                    }
+                }
+            }
+        }
+        >div.pitem-wrapper-table{
+            margin: 10px; 
+            width: 100%;
+            height: 18vh;
+            background-color: rgb(244, 245, 245);
+            @include center-content-flex-LR();
+            justify-content: flex-start;
+            padding-left: 10px;
+            cursor: pointer;
+            &:hover{
+                transition: 0.4s;
+                box-shadow: 0px 2px 1px 2px #cccccc;
+             }
+            >img{
+                width: 10vw;
+                height: 17vh;
+            }
+            >div.detail{
+                @include center-content-flex-TD();
+                justify-content: flex-start;
+                align-items: flex-start;
+                height: 95%;
+                width: 65%;
+                margin-left: 10px;
+                >p.name{
+                    font-size: 1.3em;
+                    font-weight: bold;
+                    margin: 0px;
+                }
+                >div.price{
+                    @include center-content-flex-LR();
+                    font-size: 0.9em; 
+                    p:nth-child(1){                        
+                        margin: 0px;
+                        margin-right: 7px;
+                        font-weight: bold;
+                    }
+                    p:nth-child(2){
+                        font-weight: bold;
+                        margin: 0px;
+                    }
+                    >p.dprice{
+                        font-weight: normal;
+                        text-decoration: line-through;
+                        color: rgb(148, 146, 146);
+                    }
+                }
+                >p.discount{
+                    font-size: 0.7em;
+                    font-weight: bold;
+                }
+            }
+            >div.actions{
+                >button{
+                    font-size: 0.8em;
+                    border: none;
+                    margin: 5px;
+                    padding: 5px;
+                    width: 7vw;
+                    border-radius: 5px;
+                    @include center-content-flex-LR();
+                    >.MuiSvgIcon-root{
+                        color: rgb(99, 99, 99);
+                        font-size: 1em
+                    }
+                    &:nth-child(1){
+                        background-color: rgb(227, 230, 227);
+                    }
+                    &:nth-child(2){
+                        background-color: rgb(158, 158, 158);
+                    }
+                    &:hover{
+                        box-shadow: 0px 2px 3px gray;
+                        text-shadow: 0px 2px 3px gray;
+                    }
+                    &:active{
+                        opacity: 0.8;
+                    }
+                }
+            }
+            @media screen and (min-width:280px) and (max-width:780px) {
+                img{
+                    width: 18vh;
+
+                }
+                >div.detail{
+                    width: 40vw;
+                    p{
+                        margin: 0px;
+                        &:nth-child(1){
+                            font-size: 0.9em;
+                            font-weight: bold;
+                        }
+                        &:nth-child(3){
+                            font-size: 0.6em;
+                            font-weight: bold;
+                        }
+                    }
+                }
+                >div.actions{
+                    width: 15vw;
+                    button{
+                        width: 90%;
+                    }
+                }
+            }
+        }
+        >div.missing{
+        width: 100vw;
+        height: 30vh;
+        @include center-content-flex-LR();
+        }
+    }
+    
+}
+

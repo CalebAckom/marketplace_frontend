@@ -1,0 +1,434 @@
+$PRIMARY-COLOR: #1b98e0;
+$PRIMARY-COLOR-ALT: #818aa9;
+$PRIMARY-COLOR-Hover: #006494;
+$BACKGROUND-COLOR: #e0e0e0;
+$NATIVE-WHITE: #fff;
+$NATIVE-TRANSPARENT: #0000001f;
+$NATIVE-BLACK: #1a1919;
+$NATIVE-WARNING: #ff0000;
+
+@mixin center-content-flex-LR {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin center-content-flex-TD {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin grid-container {
+  @include center-content-flex-TD();
+  justify-content: flex-start;
+  background-color: $BACKGROUND-COLOR;
+  height: 120vh;
+  width: 100vw;
+}
+
+@mixin right {
+  background-color: transparent;
+  margin-left: 20px;
+  width: 70%;
+  height: 90%;
+  margin-top: 2%;
+  > .right-content {
+    @include center-content-flex-TD();
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    // background-color: $PRIMARY-COLOR;
+    > .bari {
+      width: 100%;
+      height: 7%;
+      border-top-left-radius: 7px;
+      border-top-right-radius: 7px;
+      font-weight: bold;
+      background-color: $NATIVE-WHITE;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px;
+      > p {
+        margin: 0px;
+        font-size: 0.9em;
+        padding-left: 20px;
+      }
+      > .icon {
+        visibility: hidden;
+        color: $PRIMARY-COLOR;
+        font-size: 2em;
+      }
+    }
+    > .top {
+      width: 90%;
+      height: 30%;
+      @include center-content-flex-TD;
+
+      > .icon {
+        color: $PRIMARY-COLOR;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 10px;
+      }
+      > .title {
+        font-weight: bolder;
+        font-size: 1.4em;
+      }
+    }
+    > .mid {
+      width: 70%;
+      height: 43%;
+      background-color: $NATIVE-WHITE;
+      box-shadow: 0px 10px 10px #00000029;
+      @include center-content-flex-LR();
+      border-radius: 12px;
+      padding: 15px;
+      > .mid-left {
+        width: 60%;
+        height: 100%;
+        display: flex; // center content - top > down
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        // background-color: #006494;
+        > .detail-snipet {
+          height: 50%;
+        }
+      }
+      > .mid-right {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        // background-color: #006494;
+        > .detail-snipet {
+          height: 25%;
+        }
+      }
+    }
+    > .desc {
+      width: 70%;
+      // padding: 20px;
+      height: auto;
+      background-color: $NATIVE-WHITE;
+      margin-top: 30px;
+      padding: 30px 0px;
+      border-radius: 10px;
+      box-shadow: 0px 10px 10px #00000029;
+      @include center-content-flex-TD();
+      > p:nth-child(1) {
+        padding: 5px;
+        margin: 0px;
+        width: 90%;
+        font-weight: bold;
+        // background-color: #006494;
+      }
+      > p:nth-child(2) {
+        padding: 5px;
+        margin: 0px;
+        font-size: 0.9em;
+        width: 90%;
+        text-align: left;
+      }
+    }
+    > .lower {
+      width: 70%;
+      height: 10%;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      > button {
+        background-color: $PRIMARY-COLOR;
+        color: $NATIVE-WHITE;
+        width: 25%;
+        height: 40%;
+        border: none;
+        font-size: 1em;
+        border-radius: 9px;
+      }
+
+      > button:hover {
+        background-color: $PRIMARY-COLOR-Hover;
+      }
+      > button:active {
+        background-color: $PRIMARY-COLOR;
+      }
+    }
+  }
+}
+
+.grid-container {
+  @include grid-container();
+}
+
+.right {
+  @include right();
+}
+
+.detail-snipet {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  > .detail-title {
+    font-weight: bold;
+    font-size: 0.8em;
+    margin: 1px;
+  }
+
+  > .detail-container {
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    > .value {
+      margin-left: 7px;
+    }
+  }
+  > .detail-container:hover {
+    color: $PRIMARY-COLOR;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1064px) {
+  .right {
+    width: 90%;
+    height: 170vh;
+    margin: 10px 0px;
+    > .right-content {
+      width: 100%;
+      height: 115vh;
+      > .bari {
+        width: 95%;
+        > .icon {
+          width: 5vw;
+          visibility: visible;
+        }
+      }
+      > .top {
+        width: 90%;
+        height: 25%;
+        height: auto;
+        padding: 10px;
+        > .icon {
+          font-size: 5em;
+          color: $PRIMARY-COLOR;
+          display: none;
+        }
+        > .title {
+          font-weight: bolder;
+          font-size: 1em;
+        }
+      }
+      > .mid {
+        @include center-content-flex-TD();
+        padding: 15px;
+        height: 100%;
+        width: 95%;
+        padding: 10px;
+        > .mid-left {
+          width: 100%;
+          height: 100%;
+          // @include center-content-flex-TD; // center content - top > down
+        }
+        > .mid-right {
+          width: 100%;
+          height: 70%;
+          > .detail-snipet {
+            height: 50%;
+          }
+        }
+      }
+      > .desc {
+        width: 95%;
+      }
+      > .lower {
+        width: 95%;
+        margin: 10px;
+        > button {
+          width: 50%;
+          height: 80%;
+        }
+      }
+    }
+  }
+}
+
+//BUsiness Edit Style
+.businessEdit-wrapper {
+  width: 100vw;
+  height: 115vh;
+  display: grid;
+  grid-template: repeat(20, 2fr) / repeat(30, 2fr);
+  grid-row-gap: 10px;
+  background-color: $BACKGROUND-COLOR;
+
+  > .businessEdit-content-header {
+    grid-area: 2/5 / span 1 / span 15;
+    font-size: 1.4em;
+  }
+  > .businessEdit-content-footer {
+    grid-area: 19/5 / span 1 / span 15;
+    > button:nth-child(1) {
+      border: none;
+      border-radius: 5px;
+      height: 100%;
+      width: 15%;
+      background-color: $PRIMARY-COLOR;
+      font-size: 0.8em;
+      margin: 5px 0px;
+      color: $NATIVE-WHITE;
+      margin-right: 5px;
+    }
+    > button:nth-child(2) {
+      border: none;
+      border-radius: 5px;
+      height: 100%;
+      width: 15%;
+      background-color: $PRIMARY-COLOR-ALT;
+      font-size: 0.8em;
+      margin: 5px 0px;
+      color: $NATIVE-WHITE;
+      margin-right: 5px;
+    }
+  }
+  > .businessEdit-content-body {
+    grid-area: 3/5 / span 16 / span 15;
+    background-color: $NATIVE-WHITE;
+    padding: 10px;
+  }
+  > .businessEdit-image-container {
+    grid-area: 3/21 / span 6 / span 4;
+    background-color: transparent;
+    > .box {
+      background-color: $NATIVE-WHITE;
+      height: 80%;
+      width: 100%;
+      box-shadow: 0px 10px 10px #00000029;
+      @include center-content-flex-TD();
+      > .img-box {
+        width: 100%;
+        height: 70%;
+        background: "#e1e";
+        @include center-content-flex-LR();
+        align-items: flex-start;
+        > img {
+          height: 97%;
+          width: 75%;
+          clip-path: circle(73px at center);
+          object-fit: fill;
+        }
+      }
+      > .img-file-box {
+        width: 80%;
+        height: 15%;
+        vertical-align: middle;
+        background-color: $PRIMARY-COLOR;
+        border-radius: 7px;
+        // @include center-content-flex-LR();
+        display: grid;
+        place-items: center;
+        > input {
+          display: none;
+        }
+        > label {
+          color: $NATIVE-WHITE;
+          width: 100%;
+          text-align: center;
+          cursor: pointer;
+          font-size: 0.9em;
+          border-radius: 7px;
+        }
+      }
+      > .img-file-box:hover {
+        background-color: $PRIMARY-COLOR-Hover;
+      }
+      > .img-file-box:active {
+        background-color: $PRIMARY-COLOR;
+      }
+    }
+    > .msg {
+      height: 20%;
+      width: 100%;
+      display: grid;
+      place-items: center;
+      margin-top: 10px;
+      padding: 10px;
+      > p {
+        font-size: 0.8em;
+        color: #00000057;
+        text-align: center;
+      }
+    }
+  }
+}
+
+//edit snippet
+.EditSnipet {
+  width: 50%;
+  height: 8vh;
+  margin: 5px;
+  > .title-box {
+    > span:nth-child(1) {
+      font-weight: bolder;
+      font-size: 0.7em;
+      text-transform: capitalize;
+    }
+    > span:nth-child(2) {
+      color: $NATIVE-TRANSPARENT;
+    }
+  }
+  > .input-box {
+    border: 2px solid black;
+    border-radius: 7px;
+    height: 55%;
+    > input {
+      padding-left: 7px;
+      outline: none;
+      border: none;
+      width: 90%;
+      height: 100%;
+      border-radius: 7px;
+    }
+    > select {
+      outline: none;
+      border: none;
+      width: 98%;
+      height: 100%;
+      border-radius: 7px;
+      font-size: 0.9em;
+      > option {
+        background-color: $NATIVE-WHITE;
+        border-radius: 0px;
+      }
+      > option:hover {
+        background-color: $PRIMARY-COLOR;
+      }
+    }
+  }
+  > .input-box-area {
+    border: 2px solid black;
+    border-radius: 7px;
+    height: 100%;
+    padding: 0px;
+    padding-bottom: 2px;
+    > textarea {
+      border-radius: 7px;
+      height: 100%;
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 5px;
+      font-size: 0.9em;
+      max-height: 100%;
+      min-height: 100%;
+      margin-top: 2px;
+    }
+  }
+}

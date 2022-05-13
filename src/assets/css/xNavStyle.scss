@@ -1,0 +1,339 @@
+$PRIMARY-COLOR: #1b98e0;
+$PRIMARY-COLOR-ALT: #818aa9;
+$PRIMARY-COLOR-Hover: #006494;
+$BACKGROUND-COLOR: #e0e0e0;
+$NATIVE-WHITE: #fff;
+$NATIVE-TRANSPARENT: #0000001f;
+$NATIVE-BLACK: #1a1919;
+$NATIVE-WARNING: #ff0000;
+
+@mixin center-content-flex-LR {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+  width: 100%;
+  height: 14vh;
+  // box-shadow: 1px 1px 3px $NATIVE-WHITE;
+  background-color: $NATIVE-WHITE;
+  position: fixed;
+  margin-bottom: 10vh;
+  z-index: 100;
+  @include center-content-flex-LR();
+  > div.nav-content {
+    width: 70%;
+    @include center-content-flex-LR();
+    justify-content: space-between;
+    > .icon-container {
+      > img.page-logo {
+        width: 200px;
+        cursor: pointer;
+      }
+    }
+    div.icon-container {
+      height: 10vh;
+      width: 15%;
+      @include center-content-flex-LR();
+      justify-content: flex-start;
+    }
+    > div.srch-container {
+      // width: 55%;
+      height: 10vh;
+      // added this align-items property to center the button in the srch-container
+      align-items: center;
+      margin: 0px 50px;
+      @include center-content-flex-LR();
+      > div.srch-content {
+        //changed this width from 99% to 100%
+        width: 100%;
+        height: 50%;
+        @include center-content-flex-LR();
+        border-radius: 5px;
+        border: 1px solid $BACKGROUND-COLOR;
+        > div.divider {
+          height: 85%;
+          width: 0.3%;
+          background-color: $BACKGROUND-COLOR;
+          margin: 0px 5px;
+        }
+        > div.loc {
+          width: 35%;
+          height: 100%;
+          @include center-content-flex-LR();
+          justify-content: space-between;
+          > .srch-icon {
+            width: 20%;
+            height: 100%;
+            font-size: 0.9em;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            background-color: $BACKGROUND-COLOR;
+            color: rgb(121, 117, 117);
+            @include center-content-flex-LR();
+          }
+        }
+        > input[type="text"] {
+          outline: none;
+          border: none;
+          font-size: 0.9em;
+          width: 37%;
+          padding-left: 5px;
+        }
+        > select {
+          width: 25%;
+          border: none;
+          color: rgb(134, 131, 131);
+          font-size: 0.9em;
+          ::placeholder {
+            color: $BACKGROUND-COLOR;
+          }
+          > option {
+          }
+          > option:nth-child(1) {
+            color: $BACKGROUND-COLOR;
+          }
+        }
+      }
+    }
+    > div.later-container {
+      width: 45%;
+      height: 10vh;
+      @include center-content-flex-LR();
+      justify-content: flex-end;
+      // background-color: #006494;
+      > .log-actions {
+        > .btn-log {
+          padding: 9px;
+          width: 5vw;
+          border: none;
+          margin: 5px;
+          border-radius: 5px;
+          background-color: transparent;
+        }
+        > .btn-select {
+          background-color: $PRIMARY-COLOR;
+          color: $NATIVE-WHITE;
+        }
+      }
+      > .common-business-actions {
+        width: 50%;
+        @include center-content-flex-LR();
+        > div.post-product {
+          height: auto;
+          padding: 8px;
+          background-color: $PRIMARY-COLOR;
+          color: $NATIVE-WHITE;
+          border-radius: 3px;
+          @include center-content-flex-LR();
+          cursor: pointer;
+          &:hover {
+            background-color: $PRIMARY-COLOR-ALT;
+          }
+          &:active {
+            background-color: $PRIMARY-COLOR;
+          }
+        }
+        > div.post-product-alt {
+          visibility: hidden;
+          display: none;
+          @include center-content-flex-LR();
+          svg {
+            display: none;
+            width: 20px;
+            &:hover {
+              background-color: $PRIMARY-COLOR-ALT;
+            }
+            &:active {
+              background-color: $PRIMARY-COLOR;
+            }
+          }
+        }
+        > div.notification {
+          position: relative;
+          margin: 0px 10px;
+          width: 2vw;
+          height: 3vh;
+          @keyframes flash {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+          > .bellholder {
+            position: relative;
+            height: 100%;
+            @include center-content-flex-LR();
+            > div.noter {
+              position: absolute;
+              width: 7px;
+              height: 7px;
+              top: 0px;
+              right: 0px;
+              border-radius: 50%;
+              background-color: $PRIMARY-COLOR;
+              animation: flash 1.5s infinite;
+            }
+          }
+        }
+      }
+      > div.profile-actions {
+        width: 5vw;
+        height: 1vh;
+        border-bottom-left-radius: 20px;
+        border-top-left-radius: 20px;
+        @include center-content-flex-LR();
+        justify-content: flex-end;
+        cursor: pointer;
+        > .ico {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+        > .d-down {
+          position: relative;
+          cursor: pointer;
+          z-index: 100;
+          > svg {
+            color: #a2aaad;
+          }
+          @keyframes m-n-animes {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+          > .m-n {
+            animation: m-n-animes 0.5s forwards;
+            position: absolute;
+            z-index: 200;
+            width: 10vw;
+            font-size: 0.8em;
+            border-radius: 5px;
+            border: 1px solid $BACKGROUND-COLOR;
+            background-color: $NATIVE-WHITE;
+            > div {
+              padding: 5px;
+              border-radius: 5px;
+              cursor: pointer;
+              > .one {
+                padding: 5px;
+                > svg {
+                  font-size: 18px;
+                }
+                &:hover {
+                  background-color: $PRIMARY-COLOR;
+                  color: $NATIVE-WHITE;
+                  cursor: pointer;
+                  transition: 0.5s;
+                }
+                &:active {
+                  background-color: $PRIMARY-COLOR-ALT;
+                }
+              }
+              > .two {
+                padding: 5px;
+                > svg {
+                  font-size: 18px;
+                }
+                &:hover {
+                  background-color: $PRIMARY-COLOR;
+                  color: $NATIVE-WHITE;
+                  cursor: pointer;
+                  transition: 0.5s;
+                }
+                &:active {
+                  background-color: $PRIMARY-COLOR-ALT;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 240px) and (max-width: 780px) {
+  nav {
+    width: 100vw;
+    > div.nav-content {
+      width: 100%;
+      > div.icon-container {
+        > img.page-logo {
+          width: 120px;
+        }
+      }
+      > div.srch-container {
+        // width: 20%;
+      }
+      > div.later-container {
+        width: 70%;
+        justify-content: flex-end;
+        > .log-actions {
+          width: 100%;
+          @include center-content-flex-LR();
+          > .btn-log {
+            padding: 2px;
+            width: 30%;
+            font-size: 0.9em;
+            border: none;
+            margin: 3px;
+            border-radius: 5px;
+            background-color: transparent;
+          }
+          > .btn-select {
+            background-color: $PRIMARY-COLOR;
+            color: $NATIVE-WHITE;
+          }
+        }
+        > .common-business-actions {
+          // flex: 1;
+          width: 100%;
+          justify-content: flex-end;
+          > div.post-product {
+            font-size: 0.8em;
+            width: 50%;
+          }
+         
+          > div.notification {
+            width: 15%;
+            justify-items: flex-end;
+            svg {
+              width: 25px;
+              height: 25px;
+            }
+            > .noter {
+              width: 5px;
+              height: 5px;
+              color: #1a1919;
+            }
+          }
+        }
+        > div.profile-actions {
+          width: 30vw;
+          // background-color: beige;
+          > .ico {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+          > .d-down {
+            > .m-n {
+              width: 39vw;
+              left: -120px;
+              top: 35px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

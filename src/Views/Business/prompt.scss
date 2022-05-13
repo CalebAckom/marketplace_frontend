@@ -1,0 +1,77 @@
+$PRIMARY-COLOR: #1b98e0;
+$PRIMARY-COLOR-ALT: #818aa9;
+$PRIMARY-COLOR-Hover: #006494;
+$BACKGROUND-COLOR: #e0e0e0;
+$NATIVE-WHITE: #fff;
+$NATIVE-TRANSPARENT: #0000004b;
+$NATIVE-BLACK: #1a1919;
+$NATIVE-WARNING: #ff0000;
+$NATIVE-GRAY: #353535;
+
+@mixin  center-content-LR {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin  center-content-TD {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.prompt-wrapper{
+    position: absolute;
+    background-color: #07212ec4;
+    width: 100vw;
+    height: 130vh;
+    z-index: 700;
+    top: -100px;
+    @include center-content-TD();
+    justify-content: flex-start;
+    @keyframes fadeIn {
+        0%{
+            opacity: 0;
+            transform: translateY(-300px);
+        }
+        100%{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+    .prompt-content{
+        animation: fadeIn 0.3s;
+        margin-top: 250px;
+        width: 30vw;
+        height: 25vh;
+        background-color: #fff;
+        border-radius: 20px;            
+        @include center-content-TD();
+        justify-content: flex-start;
+        .prompt-message{
+            margin: 50px;
+        }
+        .prompt-actions{
+            button{
+                width: 8vw;
+                margin: 0px 5px;
+                border: none;
+            }
+            button:nth-child(1):hover{
+                background-color: #0eb3ff;
+                color: white;
+            }
+            button:nth-child(1):active{
+                background-color: #0eb3ffa8;
+            }
+            button:nth-child(2):hover{
+                background-color: #ff0e0e;
+                color: white;
+            }
+            button:nth-child(2):active{
+                background-color: #ff0e0e88;
+            }
+        }
+    }
+}

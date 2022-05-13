@@ -1,0 +1,133 @@
+div.PrompterWrapper{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    background-color:#19354D;
+    opacity:0.9;
+    top:0%;
+    pointer-events:visiblePainted;
+    z-index: 700;
+    border-radius: 10px; 
+    pointer-events: fill;
+    @media screen and (min-width: 280px) and (max-width:780px){
+      // width: 95vw;
+      height: 120vh;
+      border-radius: 0%;
+    }
+
+
+    >div.PromptContent{
+    width: 30vw;
+    height: 30vh;
+    background-color:#0693E3;   
+    border-radius: 10px; 
+    margin-top:7%;
+    padding: 20px;    
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    flex-direction:column;
+    >div.close-div{
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      >button{
+        border:none;
+        background:none;
+        color: white;    
+        &:hover{
+          transform: rotate(30deg);
+        }
+      }
+    }
+    >p{
+        width:92%;
+        color:white;
+        font-Size: 1.5em;
+        padding: 7px;
+        text-Align:center;
+        margin:11px;
+    }
+    @media screen and (min-width: 280px) and (max-width:780px){
+      margin-top: 15%;
+      width: 70vw;
+      padding:5px;
+      >p{
+        font-Size: 1em;
+        margin:0px;
+      }
+    }
+    div.prompt-actions{
+      width: 55%;
+      height: 7vh;
+      display:flex;
+      justify-content:space-around;
+      align-items:center;
+      >button{
+        border:none;
+        width: 6vw;
+        min-height:3vh;
+        transition:0.2s;
+        font-size:1.1em;
+        font-weight:bold;
+        border-radius: 10px;   
+        background-color: white;        
+        &:hover{
+          padding: 10px;
+          &:nth-child(2){
+            background-color: tomato;
+            color: white;
+          } 
+        }   
+       
+      }
+      @media screen and (min-width: 280px) and (max-width:780px){
+        
+        >button{
+          border:none;
+          width: 15vw;
+          height:4vh;
+          font-size:1.1em;
+        }
+      }
+    }
+    @keyframes workmotion{
+      0%{
+        // transform: rotate(0deg);
+        background:linear-gradient(to top, #ecf1b6, #ebedee3d);
+        border-radius: 50%;
+      }
+      20%{
+        // transform: rotate(180deg);
+        background:linear-gradient(to top, rgb(248, 203, 106), #ebedee3d,);
+        border-radius: 10%;
+      }
+      40%{
+        transform: rotate(360deg);
+        background:linear-gradient(to top, #d5e054,#ebedee3d);
+        border-radius: 50%;
+      }
+      80%{
+        // transform: rotate(180deg);
+        background:linear-gradient(to top, rgb(248, 203, 106), #ebedee3d,);
+        border-radius: 10%;
+      }
+      100%{
+        // transform: rotate(360deg);
+        background:linear-gradient(to top, #d5e054,#ebedee3d);
+        border-radius: 50%;
+      }
+    }
+    >div.worker{
+      animation: workmotion 3s infinite;
+      position: relative;
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+    }
+  }
+
+}

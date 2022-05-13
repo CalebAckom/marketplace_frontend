@@ -1,0 +1,152 @@
+/* @media (max-width: 576px) {
+    .product-contain{
+        width:100%;
+        background-color:#fff;
+    }
+    .product-i{
+        position:relative;
+        margin:0;
+        font-size:15px;
+        padding:25px;
+        width:50%;
+        height: auto;
+        text-align:left;
+        background-color:#fff;
+        border:1px solid #fff;
+    }
+    .product-img{
+        width:120px;
+        height: 120px;
+        object-fit:cover;
+    }
+}
+@media (min-width: 992px) {
+
+    .r-Wrapper{
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+    }
+  
+
+    .product-item{
+        position:relative;
+        margin-bottom:5px;
+        font-size:18px;
+      
+        padding:3px;
+        background-color: rgb(255, 255, 255);
+      
+      
+        border-top:    2px solid   #E0E0E0;
+        border-right:  0px solid #fff;
+        border-bottom: 0px solid  #fff;
+        border-left:   0px solid  #fff;
+    }
+    .product-img{
+        width:250px;
+        height:250px;
+        object-fit:cover;
+        
+    }
+
+    .imgBox:hover
+    {
+      -moz-box-shadow: 0 0 15px #ccc;
+      -webkit-box-shadow: 0 0 15px #ccc;
+      box-shadow: 0 0 15px #ccc;
+      opacity: 0.3;
+    }
+} */
+
+@media (max-width: 576px) {
+  .xs {
+    color: red;
+    font-weight: bold;
+  }
+  .recommend-style {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 768px) {
+  .sm {
+    color: red;
+    font-weight: bold;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) and (max-width: 992px) {
+  .md {
+    color: red;
+    font-weight: bold;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1200px) {
+  .lg {
+    color: red;
+    font-weight: bold;
+  }
+  .imgBox:hover {
+    -moz-box-shadow: 0 0 15px #ccc;
+    -webkit-box-shadow: 0 0 15px #ccc;
+    box-shadow: 0 0 15px #ccc;
+    opacity: 0.3;
+  }
+  .recommend-style {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .xl {
+    color: red;
+    font-weight: bold;
+  }
+  .imgBox:hover {
+    -moz-box-shadow: 0 0 15px #ccc;
+    -webkit-box-shadow: 0 0 15px #ccc;
+    box-shadow: 0 0 15px #ccc;
+    opacity: 0.3;
+  }
+  .recommend-style {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+  }
+}
+
+/* remove default border color of material ui select */
+fieldset {
+  border: none !important;
+  outline: none !important;
+}
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active {
+  outline: 0px !important;
+  -webkit-appearance: none;
+  box-shadow: none !important;
+}
+
+.discount-color{
+  background-color: #f9f8eb;
+}

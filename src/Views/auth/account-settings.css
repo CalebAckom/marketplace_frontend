@@ -1,0 +1,72 @@
+
+
+@charset "UTF-8";
+@import url("../../assets/iconfonts/font-awesome/css/font-awesome.min.css");
+@import url("../../assets/iconfonts/feather/feather.css");
+
+/* .lay-outstyle {
+  font-weight: 700;
+}
+h1,
+h2,
+h3,
+strong,
+span {
+  font-family: "Open Sans", sans-serif;
+} */
+
+@media screen and (max-width: 599px) {
+ 
+    .changePasswordInput{
+        width:100%;
+    }
+    .inputWrapper{
+        width:100%;
+    }
+    .editPassword{
+        position:relative;
+        left: 88%;
+    }
+    .mobileButton {
+        width: 100%;
+    }
+   
+    
+}
+
+/*Desktops and up*/
+ @media (min-width: 992px) {
+     .box{
+         width:100%;
+         background-color: rgb(224, 224, 224);
+         height:100vh;
+     }
+    .changePasswordInput{
+        width:40%;
+        position:relative;
+        left:342.5px;
+        right:342.5px;
+    }
+    .inputWrapper{
+        width:69%;
+        margin-left:15.5%;
+        margin-right: 15.5%;
+        background-color: #E0E0E0;
+    }
+    .editPassword{
+        position:relative;
+        left: 93%;
+    }
+   
+    
+    
+
+} 
+
+
+
+
+
+
+
+
